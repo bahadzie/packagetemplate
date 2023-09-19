@@ -5,7 +5,7 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file. -->
 <!-- The code to render this README is stored in .github/workflows/render-readme.yaml -->
 <!-- Variables marked with double curly braces will be transformed beforehand: -->
-<!-- `packagename` is extracted from the DESCRIPTION file -->
+<!-- `packagename`, `department`, `department_url`, `institution`, `recon`, `recon_description` are extracted from the DESCRIPTION file -->
 <!-- `gh_repo` is extracted via a special environment variable in GitHub Actions -->
 
 
@@ -24,22 +24,38 @@ knitr::opts_chunk$set(
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)
 [![R-CMD-check](https://github.com/{{ gh_repo }}/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/{{ gh_repo }}/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/{{ gh_repo }}/branch/main/graph/badge.svg)](https://app.codecov.io/gh/{{ gh_repo }}?branch=main)
-[![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-concept.svg)](https://www.reconverse.org/lifecycle.html#concept) 
+[![lifecycle-{{ recon }}](https://www.reconverse.org/images/badge-{{ recon }}.svg)](https://www.reconverse.org/lifecycle.html#{{ recon }})
+
+<!-- extra badges to consider -->
+<!-- ![downloads](https://cranlogs.r-pkg.org/badges/{{ packagename }}) -->
+<!-- ![all downloads](https://cranlogs.r-pkg.org/badges/grand-total/{{ packagename }}) -->
+<!-- ![GitHub repo size](https://img.shields.io/github/repo-size/{{ gh_repo }}?style=plastic) -->
+<!-- ![GitHub language count](https://img.shields.io/github/languages/count/{{ gh_repo }}?style=plastic) -->
+<!-- ![GitHub top language](https://img.shields.io/github/languages/top/{{ gh_repo }}?style=plastic) -->
+<!-- ![GitHub last commit](https://img.shields.io/github/last-commit/{{ gh_repo }}?color=red&style=plastic) -->
+<!-- ![GitHub stars](https://img.shields.io/github/stars/{{ gh_repo }}?style=social) -->
+<!-- ![GitHub forks](https://img.shields.io/github/forks/{{ gh_repo }}?style=social) -->
+<!-- ![GitHub watchers](https://img.shields.io/github/watchers/{{ gh_repo }}?style=social) -->
+<!-- ![GitHub downloads](https://img.shields.io/github/downloads/{{ gh_repo }}/total.svg) -->
+<!-- ![Repo Size](https://img.shields.io/github/repo-size/{{ gh_repo }}) -->
 <!-- badges: end -->
 
 {{ packagename }} provides functions to ....
 
 <!-- This sentence is optional and can be removed -->
-{{ packagename }} is developed at the [CENTER|similar](url) at the [UNIVERSITY|similar](url) as part of the [Epiverse-TRACE program](https://data.org/initiatives/epiverse/).
+{{ packagename }} is developed at the [{{ department }}]({{ department_url }}) at the {{ institution }} as part of the [Epiverse-TRACE program](https://data.org/initiatives/epiverse/).
+
+<!-- About pkg citation in README.md see https://github.com/bluegreen-labs/ecmwfr#how-to-cite-this-package-in-your-article -->
 
 ## Installation
 
 You can install the development version of {{ packagename }} from
 [GitHub](https://github.com/) with:
 
-``` r
+```{r eval=TRUE}
 # install.packages("pak")
 pak::pak("{{ gh_repo }}")
+library("{{ packagename }}")
 ```
 
 ## Example
@@ -49,12 +65,14 @@ These examples illustrate some of the current functionalities
 
 ## Development
 
+
+## Related packages and Limitations
+
+
 ### Lifecycle
 
-This package is currently a *concept*, as defined by the [RECON software
-lifecycle](https://www.reconverse.org/lifecycle.html). This means that essential
-features and mechanisms are still being developed, and the package is not ready
-for use outside of the development team.
+This package is currently *{{ recon }}*, as defined by the [RECON software
+lifecycle](https://www.reconverse.org/lifecycle.html).
 
 
 ### Contributions
